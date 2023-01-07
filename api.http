@@ -1,0 +1,27 @@
+
+# create a book
+GET http://localhost:1234/books HTTP/1.1
+Content-Type: application/json
+
+
+
+####
+POST http://localhost:1234/books HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"satish"
+}
+
+###
+PUT http://localhost:1234/books/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title":"Punnam trimurthul"
+}
+
+###
+
+DELETE http://localhost:1234/books/3 HTTP/1.1
+Content-Type:application/json
