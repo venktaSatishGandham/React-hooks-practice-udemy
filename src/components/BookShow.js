@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BookEdit from "./BookEdit";
 
-export default function BookShow({ book, deleteBook }) {
+export default function BookShow({ book, deleteBook, updateBook }) {
   const [showEdit, setShowEdit] = useState(false);
 
   const handleDeleteButtonClick = () => {
@@ -12,13 +12,19 @@ export default function BookShow({ book, deleteBook }) {
     setShowEdit(!showEdit);
   };
 
+  const toggleEditForm = (title, id) => {
+    updateBook(title, id);
+    setShowEdit(false);
+  };
+
   let content = <h3>{book.title}</h3>;
   if (showEdit) {
-    content = <BookEdit />;
+    content = <BookEdit toggleForm={toggleEditForm} book={book} />;
   }
 
   return (
     <div className="book-show">
+      <img alt="books" src={`https://picsum.photos/seed/${book.id}/300/200`} />
       <div>{content}</div>
       <div className="actions">
         <button className="edit" onClick={handleEditButtonClick}>
