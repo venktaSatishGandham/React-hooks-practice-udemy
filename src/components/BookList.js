@@ -5,7 +5,7 @@ export default function BookList({ books, deleteBook, updateBook }) {
     <BookShow
       deleteBook={deleteBook}
       updateBook={updateBook}
-      id={book.id}
+      key={book.id}
       book={book}
     />
   ));
